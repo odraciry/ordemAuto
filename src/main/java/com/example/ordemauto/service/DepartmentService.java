@@ -6,13 +6,18 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Optional;
 
 @RequiredArgsConstructor
 @Service
 public class DepartmentService {
-    private DepartmentRepository departmentRepository;
+    private final DepartmentRepository departmentRepository;
     public List<Department> getDepartment() {
         return departmentRepository.findAll();
+    }
+
+    public Optional<Department> getDepartmentByID(Integer id) {
+        return departmentRepository.findById(id);
     }
 
     public Department saveDepartment(Department department) {

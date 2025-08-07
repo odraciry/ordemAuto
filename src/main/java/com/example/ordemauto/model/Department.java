@@ -1,5 +1,7 @@
 package com.example.ordemauto.model;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -21,6 +23,7 @@ public class Department {
     private String name;
 
     @OneToMany(mappedBy = "department")
+    @JsonManagedReference
     private List<User> users = new ArrayList<>();
 }
 

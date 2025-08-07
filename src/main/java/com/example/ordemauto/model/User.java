@@ -1,5 +1,6 @@
 package com.example.ordemauto.model;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -23,6 +24,7 @@ public class User {
     private String email;
 
     @ManyToOne
+    @JsonBackReference
     private Department department;
 
     private boolean active;
